@@ -1,0 +1,119 @@
+/*
+ * All
+ * */
+.horizontal	{
+
+    &.wp-nav    {padding-top: 2%;}
+
+    /*
+     *  li all 
+     * -----------*/
+    li                          {position: relative;}
+    li a                        {display: block; position:relative; padding: 10px 20px;}
+
+
+    /*
+     *  ul  
+     * -----------*/
+    .menu                       {float: right;}
+    .menu > li                  {float: left; margin: auto 8px; padding: 0 0 10px;}
+    .menu li > a                {color: $hv-a;}
+    .menu li > a:hover          {color: $hv-ahover;}
+   
+
+    /*
+     *  ul ul 
+     * -----------*/
+    .sub-menu                       {display: block; position: absolute; left: -999em; margin-top: 10px; border-top: 2px solid $hv-plus;z-index: 3;}
+   
+    /* Add border arrow */
+    .menu > li > .sub-menu::before     {content: ''; position: absolute; bottom: 100%; left: 50%; margin-left: -8px; width: 0; height: 0; border-bottom: 8px solid $hv-plus; border-right: 8px solid transparent; border-left: 8px solid transparent;}
+
+    .sub-menu li                    {clear: both; padding: 0 10px; min-width: 210px; background: $hv-lili; border-bottom: 1px solid $hv-border; text-align: center;}
+    .sub-menu li a                  {padding: 10px 15px; color: $hv-aa;}
+
+    .sub-menu li > a:hover          {color: $hv-aahover; background: $hv-lilihover; }
+    .sub-menu li li  > a:hover      {color: $hv-aahover; background: $hv-lilihover; }
+    
+    /* li - submenu active*/
+    .menu > li:hover > .sub-menu,
+    .menu > li.focus > .sub-menu    {left:50%; -webkit-transform: translate(-50%, 0); -ms-transform: translate(-50%, 0); -o-transform: translate(-50%, 0); transform: translate(-50%, 0);}
+  
+
+    /*
+     *  ul ul ul
+     * -----------*/
+    .sub-menu li > .sub-menu {border:0}
+    /* li li - submenu active*/
+    .menu ul.sub-menu li:hover > ul.sub-menu,
+    .menu ul.sub-menu li.focus > ul.sub-menu    {left: 100%; top: -10px;}
+
+
+    /*
+     *  current li a
+     * -----------*/   
+    .current_page_item > a,
+    .current-menu-item > a        {font-weight: bold;}
+
+
+    /*
+     *  highlight
+     * -----------*/  
+    .menu .highlight > a                                  {color: $four-bw; background: $two-color; border-radius: 5px;}
+    .menu .highlight > a:hover                            {background-color: $one-color; color: $four-bw;}
+    .menu .highlight.menu-item-has-children > a::after    {color: $four-bw; }
+ 
+   
+    /*
+     *  strzalki 
+     * -----------*/
+    .menu-item-has-children > a:after {
+        display: inline; 
+        color: $hv-plus; 
+        margin-left: 9px; 
+        font-weight: bold;  
+    }
+    /* pierwszy poziom strzalka w dół */
+	.menu > .menu-item-has-children > a:after 	{
+	    @extend [class^="icon-"];
+	    content: "\f107"; 
+	}
+	/* drugi poziom strzalkaw prawo */
+	.sub-menu .menu-item-has-children > a:after 	{
+	    @extend [class^="icon-"];
+	    content: "\f105"; 
+	}
+	
+    /*
+     *  Mega menu
+     * -----------*/	
+    .menu-sub-content {
+        display: block; 
+        position: absolute; 
+        top: -999em; 
+        z-index: 3;
+     }
+    
+    .mega-menu-block > li {
+        margin-top: gutter();
+        margin-bottom: gutter();
+        border-right: 1px solid $hv-border;
+    }
+    .mega-menu-block > li:last-child {
+        border-right:0;
+    }        
+    .menu-overlay {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        background: $four-bw;
+        padding: 10px 5px;
+        border-top: 5px solid $light-border;
+    }	
+    .menu-image > a   {padding: 0;}    
+    
+    /* show */
+    .menu li:hover > ul.menu-sub-content,
+    .menu li.focus > ul.menu-sub-content     {top: 100%; width: 100%; background: $four-bw;}
+}

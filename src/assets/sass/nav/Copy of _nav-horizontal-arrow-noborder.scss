@@ -1,0 +1,102 @@
+/*
+ * All
+ * */
+.horizontal	{
+
+	&.wp-nav 							{padding-top: 2%;}
+
+	.menu 								{}
+	.menu ul.sub-menu,.menu-sub-content 			{display: block; position: absolute; left: -999em; z-index: 3;}
+	.menu ul.sub-menu ul 						{left: -999em;}
+
+    .menu-sub-content          {display: block; position: absolute; top: -999em; z-index: 3;}
+
+
+
+	.menu li a 							{display: block; position:relative; padding: 10px 20px;}
+    .menu li.megamenu .menu-image > a   {padding: 0;}
+	.menu li li a 						{padding: 10px 15px; color: $hv-aa;}
+
+	ul.sub-menu li > a:hover 				{color: $hv-aahover; background: $hv-lilihover; }
+	ul.sub-menu li li  > a:hover 			{color: $hv-aahover; background: $hv-lilihover;	}
+    
+    
+
+	.menu > li 							{position: relative; padding: 0;}
+	ul.sub-menu li 						{clear: both; padding: 0 10px 5px 10px; background: $hv-lili; border-bottom: 1px solid $hv-border;}
+
+	.menu > li 							{float: left;}
+
+	.menu li.current_page_item a,
+	.menu li.current-menu-item a		{font-weight: bold;}
+
+    .menu li:hover > ul.menu-sub-content,
+    .menu li.focus > ul.menu-sub-content     {top: 100%; width: 100%; background: $four-bw;}
+
+
+
+
+	/* strzalki */
+	.menu > li.menu-item-has-children > a:after 	{
+	    @extend [class^="icon-"];
+	    content: "\f107"; display: inline; color: $hv-plus; margin-left: 9px; font-weight: bold;}
+	ul.sub-menu li li.menu-item-has-children > a:after 	{
+	    @extend [class^="icon-"];
+	    content: "\f105"; display: inline; color: $hv-plus; margin-left: 9px; font-weight: bold;}
+
+}
+/*
+ * Ver. arrow
+ */
+.horizontal.arrow {
+	.menu 							{float: right;}
+	.menu ul.sub-menu 				{border-top: 2px solid $hv-plus; margin-top: 10px;}
+
+	ul.menu > li 					{margin: auto 8px; padding-bottom: 10px;}
+	ul.menu > li > a               	{color: $hv-a;}
+	ul.menu > li > a:hover 			{color: $hv-ahover;}
+   
+
+	/* Add border arrow */
+	.menu > li > ul.sub-menu::before			{content: ''; position: absolute; bottom: 100%; left: 50%; margin-left: -8px; width: 0; height: 0; border-bottom: 8px solid $hv-plus; border-right: 8px solid transparent; border-left: 8px solid transparent;}
+
+	/* li - submenu active*/
+	.menu > li:hover > ul.sub-menu,
+	.menu > li.focus > ul.sub-menu 			{left:50%; -webkit-transform: translate(-50%, 0); -ms-transform: translate(-50%, 0); -o-transform: translate(-50%, 0); transform: translate(-50%, 0);}
+
+	/* li li - submenu active*/
+	.menu ul.sub-menu li:hover > ul.sub-menu,
+	.menu ul.sub-menu li.focus > ul.sub-menu 		              {left: 100%; top: -12px;}
+	
+
+	/* strzalki */
+	.menu > li.menu-item-has-children > a::after 	{color: $hv-plus;}
+	
+    /* highlight */
+    .menu > li.highlight > a                               {color: $four-bw; background: $two-color; border-radius: 5px;}
+    .menu > li.highlight > a:hover                         {background-color: $one-color;}
+    .menu > li.highlight.menu-item-has-children > a::after   {color: $four-bw; }
+    	
+	
+	
+}
+
+
+.menu-overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background: #fdfdfd;
+    padding: 10px 5px;
+    border-top: 5px solid #b6bdc8;
+}
+
+.mega-menu-block .col-3 {
+    margin-top: gutter();
+    margin-bottom: gutter();
+    border-right: 1px solid $hv-border;
+}
+.mega-menu-block .col-3:last-child {
+    border-right:0;
+}

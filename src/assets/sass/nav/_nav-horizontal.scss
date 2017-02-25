@@ -1,0 +1,117 @@
+/*
+ * All
+ * */
+.horizontal	{
+
+	&.wp-nav 							{padding-top: 25px;}
+
+	.menu 								{position: relative;}
+	.menu ul 							{display: block; position: absolute; left: -999em; z-index: 3;}
+	.menu ul ul 						{left: -999em;}
+
+	.menu li a 							{display: block; position:relative; padding: 10px 25px;}
+	.menu li li a 						{padding: 10px 15px;}
+
+	.menu li li > a:hover 				{color: $hv-aahover; background: $hv-lilihover; }
+	.menu li li li  > a:hover 			{color: $hv-aahover; background: $hv-lilihover;	}
+
+	.menu li 							{position: relative; padding: 0;}
+	.menu li li 						{clear: both; padding: 0 10px 5px 10px; background: $hv-lili; border-bottom: 1px solid $hv-border;}
+
+	.menu > li 							{float: left;}
+
+	.menu li.current_page_item a,
+	.menu li.current-menu-item a		{font-weight: bold;}
+
+
+	/* strzalki */
+	.menu > li.menu-item-has-children > a:after 	{
+	    @extend [class^="icon-"];
+	    content: "\f107"; display: inline; color: $hv-plus; margin-left: 9px; font-weight: bold;}
+	.menu li li.menu-item-has-children > a:after 	{
+	    @extend [class^="icon-"];
+	    content: "\f105"; display: inline; color: $hv-plus; margin-left: 9px; font-weight: bold;}
+
+}
+
+
+
+
+
+
+/*
+ * Ver. Simple
+ */
+.horizontal.simple {
+
+	.menu 									{float: inherit;}
+	.menu li a 								{color: $hv-a;}
+	.menu li > a:hover 						{color: $hv-ahover;}
+
+	/* li - submenu*/
+	.menu li:hover > ul,
+	.menu li.focus > ul 					{display: block; left: 0;}
+
+	/* li li - submenu*/
+	.menu ul li:hover > ul,
+	.menu ul li.focus > ul 					{display: block; left: 100%; top: 0;}
+	/* strzalki */
+	> li.menu-item-has-children > a::after 	{color: $hv-a;}
+
+}
+
+
+
+/*
+ * Ver. Over
+ */
+.horizontal.over {
+	.menu 							{float: right;}
+	.menu ul 						{border-top: 2px solid $hv-plus; margin-top: 10px;}
+
+	ul.menu > li 					{margin: auto 8px; padding-bottom: 10px;}
+	ul.menu > li > a               	{color: $hv-ov-a; border-bottom: 2px solid $hv-ov-a; font-weight: 600;}
+	ul.menu > li > a:hover 			{color: $hv-ov-ahover; border-bottom: 2px solid $hv-ov-ahover;}
+
+	/* Add border arrow */
+	.menu > li > ul::before			{content: ''; position: absolute; bottom: 100%; left: 50%; margin-left: -8px; width: 0; height: 0; border-bottom: 8px solid $hv-plus; border-right: 8px solid transparent; border-left: 8px solid transparent;}
+
+	/* li - submenu active*/
+	.menu > li:hover > ul,
+	.menu > li.focus > ul 			{left:50%; -webkit-transform: translate(-50%, 0); -ms-transform: translate(-50%, 0); -o-transform: translate(-50%, 0); transform: translate(-50%, 0);}
+
+	/* li li - submenu active*/
+	.menu ul li:hover > ul,
+	.menu ul li.focus > ul 			{left: 100%; top: -12px;}
+
+	/* strzalki */
+	.menu > li.menu-item-has-children > a::after 	{color: $hv-plus;}
+
+}
+
+/*
+ * Ver. arrow
+ */
+.horizontal.arrow {
+	.menu 							{float: right;}
+	.menu ul 						{border-top: 2px solid $hv-plus; margin-top: 10px;}
+
+	ul.menu > li 					{margin: auto 8px; padding-bottom: 10px;}
+	ul.menu > li > a               	{color: $hv-a; border-bottom: 2px solid $hv-a; font-weight: 600;}
+	ul.menu > li > a:hover 			{color: $hv-ahover; border-bottom: 2px solid $hv-ahover;}
+
+	/* Add border arrow */
+	.menu > li > ul::before			{content: ''; position: absolute; bottom: 100%; left: 50%; margin-left: -8px; width: 0; height: 0; border-bottom: 8px solid $hv-plus; border-right: 8px solid transparent; border-left: 8px solid transparent;}
+
+	/* li - submenu active*/
+	.menu > li:hover > ul,
+	.menu > li.focus > ul 			{left:50%; -webkit-transform: translate(-50%, 0); -ms-transform: translate(-50%, 0); -o-transform: translate(-50%, 0); transform: translate(-50%, 0);}
+
+	/* li li - submenu active*/
+	.menu ul li:hover > ul,
+	.menu ul li.focus > ul 			{left: 100%; top: -12px;}
+
+	/* strzalki */
+	.menu > li.menu-item-has-children > a::after 	{color: $hv-plus;}
+
+}

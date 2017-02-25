@@ -1,0 +1,9 @@
+/* poprawia bład w ie odnośnie svg */
+svg:not(:root) {overflow: hidden;}
+
+.svg-element 		{display: none;}
+
+.svg {
+	.svg-element	{display: block;}
+}
+

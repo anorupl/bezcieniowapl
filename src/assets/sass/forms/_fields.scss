@@ -1,0 +1,267 @@
+/* Base Forms elements
+   ========================================================================== */
+
+/**
+ * Address `overflow` set to `hidden` in IE 8/9/10/11.
+ */
+
+button {
+  overflow: visible;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
+ * Correct `select` style inheritance in Firefox.
+ */
+
+button,
+select {
+  text-transform: none;
+}
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+
+button,
+html input[type="button"], /* 1 */
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button; /* 2 */
+  cursor: pointer; /* 3 */
+}
+/**
+ * Re-set default cursor for disabled elements.
+ */
+
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+
+input {
+  line-height: normal;
+}
+/**
+ * It's recommended that you don't attempt to style these elements.
+ * Firefox's implementation doesn't respect box-sizing, padding, or width.
+ *
+ * 1. Address box sizing set to `content-box` in IE 8/9/10.
+ * 2. Remove excess padding in IE 8/9/10.
+ */
+
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
+ * Fix the cursor style for Chrome's increment/decrement buttons. For certain
+ * `font-size` values of the `input`, it causes the cursor style of the
+ * decrement button to change from `default` to `text`.
+ */
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari and Chrome.
+ */
+
+input[type="search"] {
+  -webkit-appearance: textfield; /* 1 */
+  box-sizing: content-box; /* 2 */
+}
+
+/**
+ * Remove inner padding and search cancel button in Safari and Chrome on OS X.
+ * Safari (but not Chrome) clips the cancel button when the search input has
+ * padding (and `textfield` appearance).
+ */
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * Don't inherit the `font-weight` (applied by a rule above).
+ * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
+ */
+
+optgroup {
+	margin: 0;
+	font-weight: bold;
+	font: inherit;
+	color: inherit;
+}
+
+/* Base style form elements
+ * ----------------- */
+fieldset {
+	margin: 0 2px;
+	padding: 15px;
+	border: 1px solid $fields-border
+}
+
+legend {
+	font-weight: bold;
+	@include font-size-procent($size-big);
+	color: $fields-text;
+	border: 1px solid $fields-border;
+	padding: 19px 30px;
+}
+button,
+input[type=submit],
+input[type=button],
+input[type="reset"] {
+	display: inline-block;
+	padding: 7px 20px;
+	border: 1px solid $fields-active;
+	cursor: pointer;
+	white-space: normal;
+	background: $fields-color;
+	color: $fields-fff;
+
+	&:focus, &:active {
+	    color: $fields-fff;
+		background: $fields-active;
+	}
+}
+button[class^="icon-"] {
+    &:focus, &:active {
+        background: transparent;
+    }
+}
+
+
+input[type=file] {
+	background: $fields-bg;
+	color: $fields-text;
+	border: 1px solid $fields-border;
+
+}
+input[type=file]::-ms-value 							{border:0; background: none;}
+input[type=file]::-ms-browse							{border: 1px solid $fields-border; color: $fields-fff; background-color: $fields-color; padding: 5px 20px; }
+input[type=file]::-webkit-file-upload-button			{border: 1px solid $fields-border; color: $fields-fff; background-color: $fields-color; padding: 5px 20px;}
+input[type=file] > input[type=button]::-moz-focus-inner {border: 1px solid $fields-border; color: $fields-fff; background-color: $fields-color; padding: 5px 20px; }
+
+
+
+button,
+input,
+select,
+textarea {
+	margin: 0;
+	font-family: inherit;
+	vertical-align: baseline;
+	outline: none;
+
+	:focus & {
+	    outline: $outline;
+	}
+
+}
+input, textarea {
+	border: 1px solid $border-color;
+    padding: 8px 10px 7px;
+	color: $fields-text;
+	background: $fields-bg;
+
+	&:focus {
+		border-color: $fields-active;
+	}
+}
+input[type=text] {
+	min-width: 50%;
+}
+textarea {
+	overflow: auto;
+	min-width: 90%;
+	min-height: 100px;
+}
+
+form {
+	margin: 20px 0;
+    
+    input,
+	textarea,
+	input[type=text],
+	input[type=datetime],
+	input[type=number],
+	input[type=password],
+	input[type=url],
+	input[type=email],
+	input[type=file]	{
+
+    	max-width:100%;
+    	background-image: none;
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+        transition: border-color 0.3s ease-in-out 0.15s;
+	}
+	select {
+	    width: 90%;
+	    padding: 5px;
+	}
+    /* select with graphic */
+	//@import "_checkbox_swip";
+}
+
+/*----------------------------
+ * Search Form
+ *---------------------------- */
+.searchform {
+	width: 100%;
+	position: relative;
+	.field {
+		width: 100%;
+		padding-right: 30px;
+		min-width: 100px;
+		max-width: 100%;
+	}
+	button {
+		display: block;
+		position: absolute;
+		right: 0;
+		top: 0;
+	 	padding: 0 5px;
+		height: 100%;
+	  	min-width: 20px;
+		border: 0;
+		background: transparent;
+	}
+	button i {
+		color: $fields-text;
+		@include font-size-procent(2.5);
+		line-height: 1;
+	}
+}
+/*----------------------------
+ * Wp post password form
+ *---------------------------- */
+.post-password-form {
+    text-align: center;
+    padding: 10px 0;
+}

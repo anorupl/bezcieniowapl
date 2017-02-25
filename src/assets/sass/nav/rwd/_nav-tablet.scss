@@ -1,0 +1,68 @@
+    /* --------------------------------------------
+     * Small Menu
+     --------------------------------------------*/
+
+    .no-js {
+        .horizontal .menu ul            {width: auto; position: relative; top: 0; left: 0; margin: 0;   opacity: 1; z-index: 150; margin-bottom: 10px;}
+        .horizontal .menu ul:before     {display: none; }
+    }
+
+    .js {
+
+        .hidde                                  {top:-9999px; position: absolute; height: 1px;}
+        .icon-button-small-menu                 {display: block;}
+        .icon-button-small-menu.full-width      {width: 100%; text-align: center;}
+    }
+   
+   /* smal menu */
+    .small-menu {
+        clear: both; 
+        width: 100%; 
+        border-top: 10px solid $two-color;
+        
+        .menu                       {width: 100%; position: relative; clear: both; background: $four-bw; margin: 0; z-index:9990;}
+        .menu ul                    {background: $three-bw; margin: 0;}
+        .menu li                    {position:relative; float: none;}
+        .menu li a                  {display: block; padding: 1.6rem; line-height:1; color: $small-color-a; border-bottom: 1px solid $small-border;}
+
+        .menu li li a               {padding-left: 50px;}
+        /*rozszerzenie ikony dodane recznie*/
+        .menu li li.menu-item a:before { content: "\f105"; margin: 0 10px 0 -15px; font-weight: bold; color: $two-color;}
+ 
+   
+        .mega-menu-block > li   {margin-top: 0; margin-bottom: 0; padding: 0; border-right: 0;}   
+        .menu-overlay           {display: inline; position: relative; text-align: left; padding: 0; border: 0; background-color:transparent;}         
+        .menu-image img         {display: none;}
+        
+        .dropdown-toggle {display: none;}
+    }
+
+
+
+   /* ---------------------------------
+    * Navigation archive
+    ------------------------------------- */
+    .pagination {
+
+        .page-numbers {
+            display: none;
+            &.next, &.prev {
+                    display: block;
+                    position:relative;
+                    clear:both;
+                    left: auto;
+                    right: auto;
+                    width: 90%;
+                    margin: 10px auto;
+            }
+        }
+    }
+    .comment-navigation {
+        .nav-links {
+            a {
+                width: 100%;
+                margin: 10px 0px 10px 0px;
+                text-align: center;
+            }
+        }
+    }

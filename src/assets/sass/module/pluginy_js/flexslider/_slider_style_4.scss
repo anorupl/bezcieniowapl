@@ -1,0 +1,30 @@
+.fs-style-4 {
+
+     .flex-direction-nav  {
+        a {
+            bottom: 0;
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            opacity: 0;
+        }
+        a:before {
+            font-size: 40px;
+            line-height:40px;
+       }
+        .flex-next {
+            opacity: 0.7;
+            right: 10px;}
+        .flex-prev {
+            opacity: 0.7;
+            left: 10px;
+     }}
+
+     .flex-control-paging {
+        position: relative;
+        width: 100%;
+        text-align: center;
+        li {
+            margin: 10px 6px 9px 6px;
+     }}
+}

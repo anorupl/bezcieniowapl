@@ -1,0 +1,48 @@
+/*----------------------------------
+     *  Gird comments
+     * ---------------------------------*/
+    .comment-full-width .comments-area,
+    .comments-area,
+    .comment-form-author,
+    .comment-form-email,
+    .comment-form-url,
+    .form-submit {
+        @include span(full);
+    }
+
+    .comment-list {
+        .edit-link a {float: right;}
+
+        .comment-content,
+        .reply {
+            padding-left: 22px;
+            clear: both;
+        }
+    }
+    .comment-author {
+        margin-bottom: 0;
+        line-height: 36px;
+
+         .avatar {
+            height: 36px;
+            width: 36px;
+        }
+    }
+    .comment-metadata  {
+        margin-bottom: 1em;
+        border-bottom: 1px dotted $border-color;
+        @include font-size-procent($size-small);
+        padding: 0.5em 0;
+    }
+    .comment-author,
+    .comment-metadata  {
+        width: 100%;
+        float: left;
+    }
+    .comment-body .comment-metadata > a {
+        position: relative !important;
+        clip: auto !important;
+        clip: auto !important;
+        height: auto !important;
+        width: auto !important;
+    }

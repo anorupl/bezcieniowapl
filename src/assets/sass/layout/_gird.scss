@@ -1,0 +1,114 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+html {
+    font-size: 62.5%;
+    overflow-x: auto
+}
+body,
+html {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+body {
+    overflow: hidden;
+
+    font-family: $font-base;
+    @include font-size($size-base,0,false);
+    background: $four-bw;
+    color: $one-bw;
+
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+}
+main { display: block; }
+
+
+/*----------------------------------
+ *  Gird 12 column
+ * ---------------------------------*/
+
+
+
+.container  {
+    position:relative;
+    max-width:1300px;
+    margin: auto;
+    clear: both;
+    overflow: hidden;
+}
+
+/*
+ * float:left
+ */
+.col-1 		            {@include span(1);     @include sample(40, true);}
+.col-2                  {@include span(2);     @include sample(40, true);}
+.col-in-5               {@include span(2.4);   @include sample(40, true);}
+.col-3          		{@include span(3);     @include sample(40, true);}
+.col-4                  {@include span(4);     @include sample(40, true);}
+.col-5 		            {@include span(5);     @include sample(40, true);}
+.col-6                  {@include span(6);     @include sample(40, true);}
+.col-7 		            {@include span(7);     @include sample(40, true);}
+.col-8 		            {@include span(8);     @include sample(40, true);}
+.col-9 		            {@include span(9);     @include sample(40, true);}
+.col-10 	            {@include span(10);    @include sample(40, true);}
+.col-11 	            {@include span(11);    @include sample(40, true);}
+/* float:left with no padding */
+.col-9-no 		        {@include span(9 no-gutters);       @include sample(40, true);}
+/* float:left with margin */
+.col-9-margin         {@include span(9 split);}
+.col-3-margin         {@include span(3 split);}
+.col-10-center {
+    @include span(9 no-gutters);
+    @include push(1.5);
+}
+/*
+ * float:right
+ */
+.col-5-last             {@include span(5 last);  @include sample(40, true);}
+/* float:right with no padding */
+.col-7-no-last          {@include span(7 no-gutters last);  @include sample(40, true);}
+.col-8-no-last          {@include span(8 no-gutters last);  @include sample(40, true);}
+.col-4-no-last          {@include span(4 no-gutters last);  @include sample(40, true);}
+
+/*
+ * offset
+ */
+
+.offset-3 {
+    @include pre(1.5);
+}
+
+
+/*
+ * clearfix column
+ */
+.col-full 		         {@include span(12 clearfix);}
+.col-full-no 	         {@include span(12 no-gutters);}
+.col-full-margin         {@include span(12 split clearfix);}
+
+/*
+ *  float
+ */
+.rtl {
+    float: right;
+}
+
+/*----------------------------------
+ *  clear
+ * ---------------------------------*/
+.clear			{clear: both; width: 100%; height: 1px; display: block;}
+.clear-both     {clear: both; width: 100%;}
+
+.clear-both:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+

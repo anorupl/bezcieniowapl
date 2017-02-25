@@ -1,0 +1,23 @@
+    /* Gird */
+    .col-1,
+    .col-2,
+    .col-in-5,
+    .col-3,
+    .col-4,
+    .col-5,
+    .col-6,
+    .col-7,
+    .col-8,
+    .col-9,
+    .col-10,
+    .col-11,
+    .col-9-no,
+    .col-9-margin,
+    .col-3-margin,
+    .col-7-no-last,
+    .col-8-no-last,
+    .col-4-no-last,
+    .col-5-last,
+    .col-10-center,
+    .contact-item   { @include span(12 no-gutters); margin-left:0; margin-right:0; clear: both;}
+

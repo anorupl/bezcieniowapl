@@ -1,0 +1,18 @@
+/* Linki
+   ========================================================================== */
+a {
+	text-decoration: none;
+	color: $one-bw;
+	/* Remove the gray background color from active links in IE 10 */
+ 	background-color: transparent;
+
+	&:hover, &:active {color: $one-color; outline: 0;}
+
+	&:focus {}
+}
+
+/* Linki -> .button
+ * --------------------------------- */
+
+/* BYLA ZMIANA LACZNIKA BTN _ /- */
+

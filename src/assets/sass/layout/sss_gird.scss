@@ -1,0 +1,81 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+html {
+    font-size: 62.5%;
+    overflow-x: auto
+}
+body,
+html {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+body {
+    overflow: hidden;
+
+    font-family: $font-base;
+    @include font-size($size-base,0,false);
+    background: $four-bw;
+    color: $one-bw;
+
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+}
+main { display: block; }
+
+
+/*----------------------------------
+ *  Gird 12 column
+ * ---------------------------------*/
+.container  {
+    position:relative;
+    max-width:1300px;
+    margin: auto;
+    clear: both;
+    overflow: hidden;
+}
+
+@for $i from 1 through 11 {
+    .col-#{$i} {
+        width: span($i no-gutters);
+    }
+}
+.col-padding {
+        float:left;
+        padding-left: gutter();
+        padding-right: gutter();
+}
+.col-margin {
+        float:left;
+        margin-left:gutter();
+        margin-right:gutter();
+}
+
+.col-full 		         {@include span(12 clearfix);}
+.col-full-no 	         {@include span(12 no-gutters);}
+.col-full-margin         {@include span(12 split clearfix);}
+
+/*
+ *  float
+ */
+.rtl {
+    float: right;
+}
+
+/*----------------------------------
+ *  clear
+ * ---------------------------------*/
+.clear-both     {clear: both; width: 100%;}
+
+.clear-both:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+

@@ -1,0 +1,159 @@
+/* --------------------------------------------
+ * Color
+ --------------------------------------------*/
+$one-color      : #0071ce; // #A3014C //#00796B;
+$two-color      : #00ade9; //#FC1041, #009688
+$three-color    : #00cbe9;  
+$four-color     : #00BCD4;   // active menu
+
+$one-bw         : #373e48;  // text
+$two-bw         : #727272;  // icon
+$three-bw       : #F0F0F0;
+$four-bw        : #FFF;
+$white          : #fff;
+
+
+$border-color   : #D4D4D4;
+$light-border   : lighten($border-color , 10%);
+
+$wcag-herf      : #FFFE00;
+$wcag-bg        : #000;
+
+$fields-fff     : $four-bw;
+$fields-text    : $one-bw;
+$fields-color   : $two-color;
+$fields-bg      : lighten($three-bw, 50%);
+$fields-border  : $border-color ;
+$fields-active  : $one-color ;
+
+$outline        : 1px solid $one-color;
+
+/* --------------------------------------------
+ * Color theme
+ --------------------------------------------*/
+$dark-border    :  #A3014B;
+$dark-text      :  #EF93B2;
+$dark-bg        :  #420420;
+
+
+
+/* --------------------------------------------
+ * Path
+ --------------------------------------------*/
+
+$img-path	     : "img/";
+$svg-path	     : "img/svg/";
+$mime-path       : "img/mime/";
+$font-path	     : "fonts/";
+
+/* --------------------------------------------
+ * font
+ --------------------------------------------*/
+
+$font-base		: Arial, Helvetica, sans-serif;
+$font-second	: 'Open Sans', sans-serif;
+$font-bold		: Tahoma, Geneva, sans-serif;
+$font-code		: Monaco, Menlo, Consolas, "Courier New", monospace;
+
+$size-min           : 1;
+$size-small         : 1.2;
+$size-medium        : 1.4;
+$size-base          : 1.6;
+$size-base-medium   : 1.8;
+$size-big           : 2.4;
+$size-x-large       : 2.9;
+$size-xl-large      : 3.4;
+
+
+/* --------------------------------------------
+ * Breakpoint (continer max-width 1300px)
+ --------------------------------------------*/
+
+
+$phone         : max-width pem(480);
+$tablet		   : max-width pem(768);
+$desktop       : max-width pem(1024);
+$hd-desktop	   : min-width pem(1366);
+
+
+$mphone         : "(max-width : #{pem(480)})"; 
+$mtablet        : "(max-width : #{pem(768)})";
+$mdesktop       : "(max-width : #{pem(1024)})";
+$mhd-desktop    : "(min-width : #{pem(1366)})";
+
+/* --------------------------------------------
+ * horizontal Menu
+ --------------------------------------------*/
+
+/* all */
+$hv-li:             transparent;
+$hv-lili:           $four-bw;
+
+$hv-lihover:        transparent;
+$hv-lilihover:      $four-bw;
+
+$hv-a:              $one-bw; //$two-color;
+$hv-ahover:         $one-color;
+
+$hv-aa:             $one-bw;
+$hv-aahover:        $one-color;
+
+$hv-border:         $light-border;
+$hv-plus:           $two-color;
+
+/* over */
+$hv-ov-a:           $four-bw;
+$hv-ov-ahover:      $four-bw;
+$hv-ov-li:          transparent;
+$hv-ov-lihover:     transparent;
+
+/* --------------------------------------------
+ * Small Menu
+ --------------------------------------------*/
+
+$small-background: $four-bw;
+
+// li
+$small-color-a:                 $two-color;
+$small-background-li:           $four-bw;
+
+$small-color-ahover:            $two-color;
+$small-background-lihover:      $four-bw;
+
+// li li
+$small-color-aa:                $two-bw;
+$small-background-lili:         $four-bw;
+
+$small-color-aahover:           $two-color;
+$small-background-lilihover:    $four-bw;
+
+$small-border:                  $light-border;
+
+/* --------------------------------------------
+ * Vertical Menu
+ --------------------------------------------*/
+$vertical-font-size: 1.4;
+$vertical-font-size-lili: 1.4;
+
+$vertical-background: $four-bw;
+$vertical-background-lili: $four-bw;
+
+$vertical-color-a: $two-color;
+$vertical-color-ahover: $one-color;
+$vertical-border: $border-color;
+
+
+/* --------------------------------------------
+ * Pagination
+ --------------------------------------------*/
+$nav-border: $two-color;
+
+$nav-color: $two-color;
+$nav-text: $four-bw;
+
+$nav-background: $four-bw;
+$nav-background-active: $four-bw;
+
+
+
+

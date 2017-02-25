@@ -1,0 +1,24 @@
+.section-2 .stage:before {
+    width: 215px;
+    height: 215px;
+    left:-107px;
+    top:-29px;
+    background: url('../#{$img-path}ie8/quad_ie8.png')
+}
+.stage:first-child {
+  background: #065381;
+  .stage-number {color: #065381;}
+}
+.stage {
+  background: #35b3e5;
+  .stage-number {color: #35b3e5;}    
+}
+.section-2 .stage:after {
+    display: none;
+}
+
+.horizontal.arrow {
+    .menu > li:hover > ul,
+    .menu > li.focus > ul {left:0;}
+    .menu ul  {margin-top: 0;}
+}

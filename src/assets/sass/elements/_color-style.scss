@@ -1,0 +1,49 @@
+.color-text {
+     color: $two-color;
+     &.bg {    background-color: $four-bw;}
+}
+
+.color-light {
+    color: $four-bw;
+    &.bg {
+      background-color: $two-color;
+    }
+
+    a       {color: $four-bw;}
+    a:hover {color: $one-color;}
+
+    .entry-header-section {
+        background-color: $two-color;
+        .border { background-color: $four-bw; }
+        p       { color: $one-color; }
+    }
+}
+.color-white {
+    color: $one-bw;
+
+    &.bg {    background-color: $four-bw;}
+
+    a       { color: $two-color}
+    a:hover { color: $one-color}
+
+    .entry-header-section {
+        background-color: $four-bw;
+        .border {background-color: darken($four-bw, 15%);}
+        p       {color: darken($four-bw, 20%);}
+    }
+}
+.gray-style {
+    color: $one-bw;
+    &.bg {
+      background-color: lighten($border-color , 14%); 
+    }
+
+    a       { color: $one-bw}
+    a:hover { color: $one-color}
+
+    .entry-header-section {
+        background-color: lighten($border-color , 14%); 
+        .border { background-color: lighten($one-bw, 50%); }
+        p       { color: lighten($one-bw , 14%); }
+    }    
+}

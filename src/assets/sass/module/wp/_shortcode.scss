@@ -1,0 +1,116 @@
+.wp-audio-shortcode {
+    button {
+        outline: none;
+    }
+    .mejs-inner, .mejs-mediaelement {
+        height: 60px  !important;
+        min-height: 60px !important;
+    }
+    &.mejs-container {
+        height: 60px  !important;
+        min-height: 60px  !important;
+        background: $two-color;
+
+        .mejs-poster.mejs-layer {
+          height: 60px;
+        }
+        .mejs-controls .mejs-time-rail .mejs-time-total, 
+        .mejs-controls .mejs-horizontal-volume-slider .mejs-horizontal-volume-total {
+            background: $three-bw;
+            background: rgba(255, 255, 255, .33);
+
+        }        
+        .mejs-controls {
+            background: $two-color;
+            @include linear-gradient($two-color,$two-color);
+            height: 60px;
+            top: 0;
+            bottom: auto;
+       
+            div {
+                width: 52px;
+                height: 52px;
+                font-size: 15px;
+                line-height: 15px;
+            }
+            .mejs-button button {
+                height: 32px;
+                width: 32px;
+                margin: 13px 10px 7px 10px;
+                background-size: 288px 64px;
+             }   
+             .mejs-pause button {
+                background-position: 0 -32px;
+             }                 
+             .mejs-mute button {
+                    background-position: -32px -32px;
+             }
+             .mejs-unmute button {
+                     background-position: -32px 0;
+             }
+            
+             a.mejs-horizontal-volume-slider {
+                 height: 32px;
+                 margin-top: 12px;        
+             }
+
+            .mejs-horizontal-volume-slider {
+              
+                .mejs-horizontal-volume-total, .mejs-horizontal-volume-current {
+                    height: 16px;
+                }
+            }
+             
+            /* Kontener z czasem */
+            .mejs-time   {
+                height: 17px;
+                width: auto;
+                padding: 22px 10px 0;
+            }         
+                                   
+             /* wyśrodkowanie w pionie lini czasu */
+            div.mejs-time-rail {
+               padding-top: 17px;
+            }
+            /* linia czasu */
+            .mejs-time-rail {
+              
+                /* Wysokość lini */
+                span, a {
+                  height: 16px;  
+                }
+                 /* pasek ladowania */
+                .mejs-time-current {
+                    background: $one-color;
+                }     
+                /* wskaźnik czasu po najechaniu - kontener */
+             
+                .mejs-time-float {
+                    top: -22px;
+                    width: 54px;
+                    margin-left: -26px;
+                    border: solid 1px #fff;
+                    background: #fff;
+                    height: 18px;
+                    font-size: 13px;
+                    line-height: 13px;
+                    border-radius: 10px;
+                }    
+                /* Czas - wewnątrz kontenera */
+                .mejs-time-float-current {
+                    width: 50px;
+                    height: 12px;
+                 } 
+                /* Strzałka pod spodem*/
+                .mejs-time-float-corner {
+                    border: solid 4px #fff;
+                    border-color: #fff transparent transparent;
+                    top: 17px;
+                    left: 22px;
+                    height: 8px;
+                } 
+                                           
+            }
+        }
+    }
+}

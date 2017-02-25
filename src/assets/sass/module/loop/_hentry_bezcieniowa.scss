@@ -1,0 +1,44 @@
+.hentry-multi {
+    
+    .post-content-warp {
+        border-left: 1px solid $light-border;
+    }     
+    .post-content-warp, .entry-meta {
+        margin: 30px 0 30px;
+        border-top: 1px solid $light-border;
+        padding-top: 2%;
+    }
+    .entry-meta {
+        padding: 17px 5px;
+        @include font-size($size-medium);
+        
+        a {
+            position: relative;
+            line-height: 150%;
+        }
+        a::before {     
+            background: $two-color;
+            content: "";
+            height: 2px;
+            left: -25px;
+            position: absolute;
+            top: 43%;
+            width: 20px;
+        }          
+    }
+    .posted-on {
+        font-weight: bold; 
+        
+    }  
+}
+/*----------------------------------
+ *  Breakpoint $tablet : max-width 768px;
+ * ---------------------------------*/
+@include breakpoint($tablet) {
+    .hentry-multi {
+        .post-content-warp {
+            margin-top: 10px;
+            border-left: 0;
+        }    
+    }
+}

@@ -1,0 +1,33 @@
+.icon-button-small-menu 												{
+	margin: gutter() auto; 
+	display: none;
+	border: none;
+	overflow:hidden;
+    background-color: transparent;
+    height: 38px;
+    padding: 0;
+    text-align: center;
+    width: 42px;
+    
+    &.right-button	{
+        position: absolute;
+        right: 0;
+        top: 0;
+        margin: 20px gutter();
+        z-index: 300;
+    }
+    &:before {
+    	content: "\f039";
+        display: inline-block;
+        font-size: 38px;
+        vertical-align: top;
+    	line-height: 38px;
+    	color: $two-color;
+    }
+}
+
+#site-header {
+    .clone-rwd {
+        display: none;
+    }
+}

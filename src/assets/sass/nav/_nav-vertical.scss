@@ -1,0 +1,17 @@
+/*
+ * DropDown .dropdown
+ */
+
+.vertical.dropdown {
+
+.menu .toggled-on           {display: block;}
+.menu ul                    {display: none;}
+.no-js .menu ul             {display: block;}
+
+.menu .dropdown-toggle					{font-family: 'icomoon'; color: $vertical-color-a; background-color: transparent; border: 0; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; height: 42px; padding: 0; position: absolute; text-transform: lowercase; top: 3px; right: 0; width: 42px;}
+.menu .dropdown-toggle:after			{content: "\f107"; font-size: 24px; line-height: 42px; position: relative; top: 0; left: 0; width: 42px;}
+.menu .dropdown-toggle.toggle-on:after	{content: "\f106"; }
+
+.menu .dropdown-toggle:hover,
+.menu .dropdown-toggle:focus			{background-color: $vertical-color-ahover; color: $vertical-background;}
+}
