@@ -1,4 +1,4 @@
-<div id="header-slider" class="col-full-no fixed-margin">
+<div id="header-slider" class="col-full-no">
 	<div id="image-bg" class="header-resize">
 		<div class="slides" style="background-image:url('<?php echo esc_url(get_theme_mod('wpg_slider_img', get_template_directory_uri() . '/img/default/no_image.jpg')); ?>');">
 		<?php if (get_theme_mod('wpg_slide_heading', '') !== '') : ?>
@@ -10,4 +10,4 @@
 		<?php endif; ?>
 		</div>
 	</div>
-</div>	
+</div>

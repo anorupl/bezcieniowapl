@@ -3,29 +3,29 @@
  * */
 .horizontal	{
 
-    &.wp-nav    {padding-top: 2%;}
+    &.wp-nav    {padding-top: 2%; margin-right: 58pt;}
 
     /*
-     *  li all 
+     *  li all
      * -----------*/
     li                          {position: relative;}
     li a                        {display: block; position:relative; padding: 10px 20px;}
 
 
     /*
-     *  ul  
+     *  ul
      * -----------*/
     .menu                       {float: right;}
     .menu > li                  {float: left; margin: auto 8px; padding: 0 0 10px;}
     .menu li > a                {color: $hv-a;}
     .menu li > a:hover          {color: $hv-ahover;}
-   
+
 
     /*
-     *  ul ul 
+     *  ul ul
      * -----------*/
     .sub-menu                       {display: block; position: absolute; left: -999em; margin-top: 10px; border-top: 2px solid $hv-plus;z-index: 3;}
-   
+
     /* Add border arrow */
     .menu > li > .sub-menu::before     {content: ''; position: absolute; bottom: 100%; left: 50%; margin-left: -8px; width: 0; height: 0; border-bottom: 8px solid $hv-plus; border-right: 8px solid transparent; border-left: 8px solid transparent;}
 
@@ -34,11 +34,11 @@
 
     .sub-menu li > a:hover          {color: $hv-aahover; background: $hv-lilihover; }
     .sub-menu li li  > a:hover      {color: $hv-aahover; background: $hv-lilihover; }
-    
+
     /* li - submenu active*/
     .menu > li:hover > .sub-menu,
     .menu > li.focus > .sub-menu    {left:50%; -webkit-transform: translate(-50%, 0); -ms-transform: translate(-50%, 0); -o-transform: translate(-50%, 0); transform: translate(-50%, 0);}
-  
+
 
     /*
      *  ul ul ul
@@ -51,49 +51,49 @@
 
     /*
      *  current li a
-     * -----------*/   
+     * -----------*/
     .current_page_item > a,
     .current-menu-item > a        {font-weight: bold;}
 
 
     /*
      *  highlight
-     * -----------*/  
+     * -----------*/
     .menu .highlight > a                                  {color: $four-bw; background: $two-color; border-radius: 5px;}
     .menu .highlight > a:hover                            {background-color: $one-color; color: $four-bw;}
     .menu .highlight.menu-item-has-children > a::after    {color: $four-bw; }
- 
-   
+
+
     /*
-     *  strzalki 
+     *  strzalki
      * -----------*/
     .menu-item-has-children > a:after {
-        display: inline; 
-        color: $hv-plus; 
-        margin-left: 9px; 
-        font-weight: bold;  
+        display: inline;
+        color: $hv-plus;
+        margin-left: 9px;
+        font-weight: bold;
     }
     /* pierwszy poziom strzalka w dół */
 	.menu > .menu-item-has-children > a:after 	{
 	    @extend [class^="icon-"];
-	    content: "\f107"; 
+	    content: "\f107";
 	}
 	/* drugi poziom strzalkaw prawo */
 	.sub-menu .menu-item-has-children > a:after 	{
 	    @extend [class^="icon-"];
-	    content: "\f105"; 
+	    content: "\f105";
 	}
-	
+
     /*
      *  Mega menu
-     * -----------*/	
+     * -----------*/
     .menu-sub-content {
-        display: block; 
-        position: absolute; 
-        top: -999em; 
+        display: block;
+        position: absolute;
+        top: -999em;
         z-index: 3;
      }
-    
+
     .mega-menu-block > li {
         margin-top: gutter();
         margin-bottom: gutter();
@@ -101,7 +101,7 @@
     }
     .mega-menu-block > li:last-child {
         border-right:0;
-    }        
+    }
     .menu-overlay {
         position: absolute;
         bottom: 0;
@@ -110,9 +110,9 @@
         background: $four-bw;
         padding: 10px 5px;
         border-top: 5px solid $light-border;
-    }	
-    .menu-image > a   {padding: 0;}    
-    
+    }
+    .menu-image > a   {padding: 0;}
+
     /* show */
     .menu li:hover > ul.menu-sub-content,
     .menu li.focus > ul.menu-sub-content     {top: 100%; width: 100%; background: $four-bw;}

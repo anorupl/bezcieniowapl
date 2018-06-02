@@ -1,13 +1,15 @@
-<?php if (get_theme_mod('wpg_telephone', '') !== '') : ?>
-	<div class="contact-item phone-contact">
-		<i class="item-icon icon-phone_android"></i><?php _e('Call us ', 'wpg_theme'); 
-		printf('<a href="tel:%1s">%2$s</a>', 
-			str_replace(' ','', get_theme_mod('wpg_telephone')),
-			esc_html(get_theme_mod('wpg_telephone'))
-		); ?>
-	</div>
-<?php endif; ?>
-
+<?php
+/**
+* Template part for displaying adress.
+*
+* @package wpg_bezcieniowa_pl
+* @since 1.0.1
+*
+*/
+?>
+<div class="contact-item phone-contact">
+	<?php wpg_the_phone(); ?>
+</div>
 <?php if (get_theme_mod('wpg_address', '') !== '') :?>
 	<div class="contact-item adress-contact">
 		<i class="item-icon icon-map-marker"></i><?php echo esc_html(get_theme_mod('wpg_address')); ?>
@@ -18,4 +20,4 @@
 		<i class="item-icon icon-envelope"></i>
 		<?php printf('<a href="mailto:%1s">%1$s</a>', antispambot(get_theme_mod('wpg_email'))); ?>
 	</div>
-<?php endif; ?>	
+<?php endif; ?>

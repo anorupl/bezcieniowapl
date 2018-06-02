@@ -147,7 +147,7 @@ gulp.task('sass', function() {
 	var style = gulp.src(theme.css.src + 'style.scss')
 		.pipe(changed(theme.css.dist))
 		//Default:nestedValues:nested,expanded,compact,compressed
-		.pipe(sass({outputStyle: 'expanded' }).on('error', sass.logError))
+		.pipe(sass({outputStyle: 'compressed' }).on('error', sass.logError))
 		.pipe(prefixer({
 			browsers: ['> 1%', 'last 4 versions', 'Firefox ESR']
 		}))
@@ -176,16 +176,16 @@ gulp.task('css', ['sass'], function() {
 	return gulp.src(project_dir + 'style.css')
 	.pipe(header(
 '/*\n\
-ThemeName:Bezcieniowa.pl\n\
-ThemeURI:http://code.zerebny.ovh\n\
+Theme Name:Bezcieniowa.pl\n\
+Theme URI:http://code.zerebny.ovh\n\
 Author:anorupl\n\
-AuthorURI:\n\
+Author URI:\n\
 Description:WPG will make your WordPress look beautiful everywhere :)\n\
 Version:1.0.1\n\
 Licence: GPL-2.0\n\
-LicenceURI:http://www.gnu.org/licenses/gpl-2.0.html\n\
+Licence URI:http://www.gnu.org/licenses/gpl-2.0.html\n\
 Tags:one-column,responsive-layout,custom-menu,featured-images,microformats,threaded-comments,translation-ready\n\
-TextDomain:wpg_theme\n\
+Text Domain:wpg_theme\n\
 */\n'))
 	.pipe(gulp.dest(project_dir));
 });
@@ -236,4 +236,78 @@ gulp.task('clean', function() {
 });
 gulp.task('build', ['clean'], function() {
 	sequence('theme-php', 'copy-assets', 'theme-lang', 'theme-js', 'css', 'images', 'language');
+});
+
+//////////////////////Watch////////////////////////////////////////////////
+gulp.task('watch-all', function() {
+	//1.Copy PHP source files to the `build`folder
+	gulp.watch(theme.php.src, ['theme-php']);
+	//2.Copy customizer assets and fonts
+	gulp.watch(theme.customizer_assets.src, ['copy-assets']);
+	//3.Copy customizer assets and fonts
+	gulp.watch(theme.fonts.src, ['copy-assets']);
+	//4.Copy everything under `src/languages`indiscriminately
+	gulp.watch(theme.lang.src, ['theme-lang']);
+	//6.Generate script theme js
+	gulp.watch(theme.js.src + '**/*.js', ['theme-js']);
+	//7.Build stylesheets
+	gulp.watch(theme.css.src + '/**/*.scss', ['css']);
+	//8.Copy images
+	gulp.watch([theme.image.src + '**/' + theme.image.imgType, theme.image.svg_src + '**/*.svg'], ['image']);
+});
+gulp.task('watch-code', function() {
+
+	//Copy PHP source files to the `build`folder
+	gulp.watch(theme.php.src, ['theme-php']);
+	//Copy customizer assets and fonts
+	gulp.watch(theme.customizer_assets.src, ['copy-assets']);
+	//Generate script theme js
+	gulp.watch([node + '*/{' + dist + '**/*.js,' + dist + '*.js}'], ['theme-js']);
+	//Generate script theme js
+	gulp.watch(theme.js.src + '**/*.js', ['theme-js']);
+	//Build stylesheets
+	gulp.watch(theme.css.src + '/**/*.scss', ['css']);
+});
+gulp.task('watcha', function() {
+	//Copy PHP source files to the `build`folder
+	gulp.watch(theme.php.src, ['theme-php']);
+	//Build stylesheets
+	gulp.watch(theme.css.src + '/**/*.scss', ['css']);
+	//gulp.watch(theme.js.src+'**/*.js',['theme-js']);
+});
+
+//////////////////////FTP////////////////////////////////////////////////
+gulp.task('ftp', function() {
+	var conn = ftp.create({
+		host: ftp_config.host,
+		user: ftp_config.user,
+		password: ftp_config.password,
+		parallel: 10,
+		log: gutil.log
+	});
+	return gulp.src(dist + '**', {
+		base: dist,
+		buffer: false
+	}).pipe(conn.newer(ftp_config.path)).pipe(conn.dest(ftp_config.path));
+});
+gulp.task('ftp-watch', function() {
+	var conn = ftp.create({
+		host: ftp_config.host,
+		user: ftp_config.user,
+		password: ftp_config.password,
+		parallel: 10,
+		log: gutil.log
+	});
+	//Copy PHP source files to the `build`folder
+	gulp.watch(theme.php.src, ['theme-php']);
+	//Build stylesheets
+	gulp.watch(theme.css.src + '/**/*.scss', ['css']);
+	//Watch dist
+	gulp.watch(['./dist/**/*']).on('change', function(event) {
+		console.log('Changesdetected!Uploadingfile"' + event.path + '",' + event.type);
+		return gulp.src([event.path], {
+			base: dist,
+			buffer: false
+		}).pipe(conn.newer(ftp_config.path)).pipe(conn.dest(ftp_config.path));;
+	});
 });

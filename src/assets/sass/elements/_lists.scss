@@ -1,11 +1,10 @@
-
 ul, ol {
 	margin: 0 0 0.2em 1em;
+	padding: 0;
 }
 
 ul {list-style: disc inside;}
 ol {list-style: decimal inside;}
-
 
 /* Definition Lists */
 dl {margin-bottom: 20px;}
@@ -17,8 +16,8 @@ dd {margin-left: 10px;}
 
 @include breakpoint($tablet) {
 
-    ul, ol {
-        margin: 0 0 0.2em 0.4em;
-    }
+	ul, ol {
+		margin: 0 0 0.2em 0.4em;
+	}
 
 }

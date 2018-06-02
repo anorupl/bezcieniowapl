@@ -5,7 +5,7 @@
  * Some of the functionality here could be replaced by core features:
 
  * Base function
- * -	wpg_post_per_page 
+ * -	wpg_post_per_page
  *	-	wpg_body_class
  *	-	wpg_post_class
  * -	wpg_widget_nav_menu
@@ -21,21 +21,19 @@
  * Add Remove
  * -	print_emoji_detection_script
  * -	print_emoji_styles
- * -	wpg_disable_rest_api
  * - 	wpg_filter_image_sizes
- * - 	wpg_remove_ver_css_js
 
- * Admin 
+ * Admin
  * -	wpg_table_plugins_tinymce
  * -	wpg_buttons_tinymce
  *
  * @package wpg_bezcieniowa_pl
- * @since 1.0.0
+ * @since 1.0.1
  */
 
 
 function wpg_post_per_page( $query ) {
-   		
+
    if ( $query->is_main_query() ) {
 
 	   $sticky = get_option('sticky_posts') ;
@@ -47,26 +45,26 @@ function wpg_post_per_page( $query ) {
 	}
 
 	if ( $query->is_main_query() && $query->is_home() && !is_paged()) {
-		
+
 		if (get_theme_mod('wpg_blog_category','0') !== 0)	{
-			$query->set( 'cat', get_theme_mod('wpg_blog_category'));		
+			$query->set( 'cat', get_theme_mod('wpg_blog_category'));
 		}
 		$query->set('posts_per_page', get_theme_mod('wpg_post_number','2'));
-	
+
 	} elseif ($query->is_main_query() && $query->is_home() ) {
-	
+
 		if (get_theme_mod('wpg_blog_category','0') !== 0)	{
-			$query->set( 'cat', get_theme_mod('wpg_blog_category'));		
-		}	
+			$query->set( 'cat', get_theme_mod('wpg_blog_category'));
+		}
 		$query->set( 'offset', get_theme_mod('wpg_post_number','2') );
-	
+
 	} elseif (is_post_type_archive('offer') || is_tax('gallery')) {
-			
+
 		$query->set('posts_per_page', -1);
 		$query->set('orderby', 'menu_order');
-		$query->set('order', 'ASC');	
-		
-	} 
+		$query->set('order', 'ASC');
+
+	}
 	elseif (is_post_type_archive() || is_tax()) {
 		$query->set('posts_per_page', -1);
 	}
@@ -84,7 +82,7 @@ add_action( 'pre_get_posts', 'wpg_post_per_page' );
  * @param 	array $classes Classes for the body element.
  */
 function wpg_body_class($class) {
-	
+
 	$class[] = 'hfeed site';
 
 	if (is_singular()){
@@ -114,7 +112,7 @@ function wpg_post_class($class) {
 	} else {
 		$class[] = 'col-9 offset-3';
 	}
-	
+
 	// return the $class array
 	return $class;
 }
@@ -170,7 +168,7 @@ add_filter( 'the_title', 'wpg_no_title' );
 /*
  * Add wpg theme function
  *==========================================*/
- 
+
 /**
  * Filtr add responsive container to video embeds.
  *
@@ -219,38 +217,38 @@ elseif ( strpos ( $html, 'feature=oembed' ) !== false )
 else
    { return $html; }
 }
-add_filter( 'embed_oembed_html', 'add_video_wmode_transparent', 10, 3); 
- 
+add_filter( 'embed_oembed_html', 'add_video_wmode_transparent', 10, 3);
+
 function wpg_breadcrumbs() {
- 
+
   $showOnHome = 0; // 1 - show breadcrumbs on the homepage, 0 - don't show
   $delimiter = '&raquo;'; // delimiter between crumbs
   $home = __('Home','wpg_theme'); // text for the 'Home' link
   $showCurrent = 1; // 1 - show current post/page title in breadcrumbs, 0 - don't show
- 
+
   $homeLink 	= get_bloginfo('url');
   $post_type 	= get_post_type();
-  
+
   echo '<div id="crumbs" class="col-full"><a href="' . $homeLink . '">' . $home . '</a> ' . $delimiter . ' ';
       if ( $post_type == 'offer' ) {
-        	
+
         $post_type = get_post_type_object(get_post_type());
         $slug = $post_type->rewrite;
         echo '<a href="' . $homeLink . '/' . $slug['slug'] . '/">' . $post_type->labels->singular_name . '</a>';
         if ($showCurrent == 1) echo ' ' . $delimiter . ' ' . get_the_title();
-      
+
       } elseif($post_type == 'post_gallery' ){
 
 		global $post;
 
 		// Get post type taxonomies
 		$taxonomies = get_object_taxonomies( $post->post_type, 'objects' );
-				
+
 		// Empty array for terms
   		$out = array();
 
 		foreach ( $taxonomies as $taxonomy_slug => $taxonomy ){
-						
+
 			// get the terms related to post
 			$terms = get_the_terms( $post->ID, $taxonomy_slug );
 
@@ -260,7 +258,7 @@ function wpg_breadcrumbs() {
 			 	}
 			}
 		}
-		printf('%1$s', implode('', $out ));      	
+		printf('%1$s', implode('', $out ));
       }
       else {
         $cat = get_the_category(); $cat = $cat[0];
@@ -298,7 +296,7 @@ add_filter( 'get_previous_post_sort', 'wpg_adjacent_post_sort', 11, 2 );
  *
  * @since 	1.0.0
  *
- */  
+ */
 function disable_emojis() {
 
 			/*
@@ -316,7 +314,7 @@ function disable_emojis() {
 			}
 			//* Remove DNS prefetch s.w.org (used for emojis, since WP 4.7)
 			add_filter( 'emoji_svg_url', '__return_false' );
-						
+
 
 			//* Remove DNS prefetch s.w.org (used for emojis, since WP 4.7)
 			add_filter( 'emoji_svg_url', '__return_false' );
@@ -325,39 +323,17 @@ function disable_emojis() {
 add_action( 'init', 'disable_emojis', 4 );
 
 /**
- * Disabled REST API
- *
- * @since 	1.0.0
- *
- */ 
-function wpg_disable_rest_api() {
-	return new WP_Error('wpg_rest_api_disabled', 'REST API disables', array('status' => 403));
-}
-add_filter('rest_authentication_errors', 'wpg_disable_rest_api', 99);
-
-/**
- * Disable 'medium_large' Image size 
+ * Disable 'medium_large' Image size
  *
  * @since 	1.0.0
  *
  */
 function wpg_filter_image_sizes($sizes) {
-		
+
 	unset( $sizes['medium_large']);
 	return $sizes;
 }
 add_filter('intermediate_image_sizes_advanced', 'wpg_filter_image_sizes');
-
-// Function to remove version numbers
-function wpg_remove_ver_css_js( $src ) {
-	if ( strpos( $src, 'ver=' ) )
-		$src = remove_query_arg( 'ver', $src );
-	return $src;
-}
-// Remove WP Version From Styles	
-add_filter( 'style_loader_src', 'wpg_remove_ver_css_js', 9999 );
-// Remove WP Version From Scripts
-add_filter( 'script_loader_src', 'wpg_remove_ver_css_js', 9999 );
 
 /*
  * Add Admin

@@ -3,7 +3,7 @@
  * Theme Customizer
  *
  * @package wpg_bezcieniowa_pl
- * @since 1.0.0
+ * @since 1.0.1
  *
  * @global object $wp_customize WP_Customize instance.
  *
@@ -19,8 +19,8 @@ require get_template_directory() . '/inc/customizer/helpers/inc_scripts_and_styl
 
 
 if(isset($wp_customize)) {
-	
-	
+
+
 	/* Load necessary files with additional elements only if custumizer on
 	 ************************************************/
 	require get_template_directory() . '/inc/customizer/helpers/inc_context.php';
@@ -34,19 +34,19 @@ if(isset($wp_customize)) {
 	require get_template_directory() . '/inc/customizer/custom_control_field/inc_field_fonts.php';
 
 	// Class "WPG_Customize_Control_Checkbox_Multiple" - Custom control with mutli checbox.
-	// niezbędne dla pola 
+	// niezbędne dla pola
 	require get_template_directory() . '/inc/customizer/custom_control_field/inc_multi_checbox.php';
-	
+
 	// Class "WPG_Customize_Control_Checkbox_Multiple_Sort"
 	require get_template_directory() . '/inc/customizer/custom_control_field/inc_multisort_checbox.php';
-	
+
 	// Class "WPG_Customize_Control_Custom_Dropdown" - Custom control with custom dropdown.
 	require get_template_directory() . '/inc/customizer/custom_control_field/inc_custom_dropdown.php';
 	// Class "WPG_Customize_Control_Google_MAP".
 	require get_template_directory() . '/inc/customizer/custom_control_field/inc_google_map.php';
 	// Class "WPG_Customize_Control_Google_MAP".
 	require get_template_directory() . '/inc/customizer/custom_control_field/inc_switch.php';
-		
+
 }
 
 /**
@@ -75,15 +75,15 @@ function wpg_customizer_general($wp_customize) {
 	) );
 
 	/* Add Section - to panel [Theme Settings]
-	 * 1.Typography 	
-	 * 2.Featured page	
+	 * 1.Typography
+	 * 2.Featured page
 	 * 3.Last work
 	 * 4.Blog
 	 * 5.Contact
 	 * 6.Social networks link
 	 * 7.Image header
 	 * 8.stage
-	 * 
+	 *
 	 ************************************************/
     // 1. Typography
     $font_section_id = 'wpg_typography_stc';
@@ -94,17 +94,17 @@ function wpg_customizer_general($wp_customize) {
 		'theme_supports'	=> '',
 		'title'      		=> __( 'Typography', 'wpg_theme' ),
 	    'panel' 			=> $theme_panel_id,
-	));	 
-	// 2.Featured page	
+	));
+	// 2.Featured page
 	$page_featured_section_id = 'wpg_pagefeatured_stc';
-	
+
     $wp_customize->add_section(  $page_featured_section_id, array(
 		'priority'   		=> '4',
 		'capability' 		=> 'edit_theme_options',
 		'theme_supports'	=> '',
 		'title'      		=> __( 'Page featured', 'wpg_theme' ),
 	    'panel' 			=> $theme_panel_id,
-	));				
+	));
 	// 3.Last work
     $lastwork_section_id = 'wpg_lastwork_stc';
 
@@ -114,7 +114,7 @@ function wpg_customizer_general($wp_customize) {
 		'theme_supports'	=> '',
 		'title'      		=> __( 'Last work', 'wpg_theme' ),
 	    'panel' 			=> $theme_panel_id,
-	));	
+	));
 	// 4.Blog
     $blog_section_id = 'wpg_blog_stc';
 
@@ -124,8 +124,8 @@ function wpg_customizer_general($wp_customize) {
 		'theme_supports'	=> '',
 		'title'      		=> __('Last post', 'wpg_theme'),
 	    'panel' 			=> $theme_panel_id,
-	));		
-	// 5.Contact	
+	));
+	// 5.Contact
     $contact_section_id = 'wpg_contact_stc';
 
     $wp_customize->add_section( $contact_section_id, array(
@@ -134,7 +134,7 @@ function wpg_customizer_general($wp_customize) {
 		'theme_supports'	=> '',
 		'title'      		=> __( 'Contact', 'wpg_theme' ),
 	    'panel' 			=> $theme_panel_id,
-	));	
+	));
     // 6. Social networks link
     $social_network_id = 'wpg_social_stc';
 
@@ -144,7 +144,7 @@ function wpg_customizer_general($wp_customize) {
 		'theme_supports'	=> '',
 		'title'      		=> __( 'Social networks', 'wpg_theme' ),
 	    'panel' 			=> $theme_panel_id,
-	));	
+	));
     // 7. Image header
     $image_header_id = 'wpg_image_header';
 
@@ -154,21 +154,36 @@ function wpg_customizer_general($wp_customize) {
 		'theme_supports'	=> '',
 		'title'      		=> __( 'Background in header', 'wpg_theme' ),
 	    'panel' 			=> $theme_panel_id,
-	));		
+	));
 	// 8.Realization Stages
 	$stages_section_id = 'wpg_stages_stc';
-	
+
 	$wp_customize->add_section(  $stages_section_id, array(
 		'priority'   		=> '4',
 		'capability' 		=> 'edit_theme_options',
 		'theme_supports'	=> '',
 		'title'      		=> __( 'Realization Stages', 'wpg_theme' ),
 		   'panel' 			=> $theme_panel_id,
-	));	
-	
+	));
+
+	// 12.Terms
+	$terms_section_id = 'wpg_terms_stc';
+	$wp_customize->add_section(  $terms_section_id, array(
+		'priority'      => '12',
+		'capability'    => 'edit_theme_options',
+		'theme_supports'=> '',
+		'title'         => __( 'Terms', 'wpg_theme' ),
+		'panel'         => $theme_panel_id,
+	));
+
+
+
+
+
+
 	/* Add setting and control - Typography Section
-	 * 1.Typography 	
-	 * 2.Featured page	
+	 * 1.Typography
+	 * 2.Featured page
 	 * 3.Last work
 	 * 4.Blog
 	 * 5.Contact
@@ -182,86 +197,77 @@ function wpg_customizer_general($wp_customize) {
 	// 2. Featured page	(v.Dropdown select)
 			//(v.Dropdown select)
 			require get_template_directory() . '/inc/customizer/setting_control/featured/inc_setting_featured_page_dropdown.php';
-						
-	// 3. Last work	
+
+	// 3. Last work
 		require get_template_directory() . '/inc/customizer/setting_control/inc_setting_lastwork.php';
 	// 4. Blog
 		require get_template_directory() . '/inc/customizer/setting_control/inc_setting_blog.php';
 	// 5. Contact
 		require get_template_directory() . '/inc/customizer/setting_control/inc_setting_contact.php';
-	// 6.Social networks link	
+	// 6.Social networks link
 		require get_template_directory() . '/inc/customizer/setting_control/inc_setting_social_net.php';
 	// 7.Image header
 		require get_template_directory() . '/inc/customizer/setting_control/slider/inc_setting_image_header.php';
-	// 8.Realization Stages	
+	// 8.Realization Stages
 		require get_template_directory() . '/inc/customizer/setting_control/inc_setting_stages.php';
-	
+		// 12 Terms
+		require get_template_directory() . '/inc/customizer/setting_control/inc_setting_terms.php';
+
 
 	/* Only if plugin on
-	 * 
+	 *
 	 * Add Section - to panel [Theme Settings]
-	 * 8.Slider			
+	 * 8.Slider
 	 * 9.Client
 	 * 10.Testimonials
 	 * 11.Offer
 	 * -----------------------------
-	 * 
+	 *
 	 * Add setting and control
-	 * 8.Slider			
+	 * 8.Slider
 	 * 9.Client
 	 * 10.Testimonials
 	 * 11.Offer
-	 ************************************************/	 	
+	 ************************************************/
 	 if ( class_exists('helper')) {
-	
+
 		/* Add Section - to panel [Theme Settings]
 		************************************************/
-	   	
+
 	   	// 8.Slider
 	    $slider_section_id = 'wpg_slider_stc';
-	
+
 	    $wp_customize->add_section(  $slider_section_id, array(
 			'priority'   		=> '2',
 			'capability' 		=> 'edit_theme_options',
 			'theme_supports'	=> '',
 			'title'      		=> __( 'Slider', 'wpg_theme' ),
 		    'panel' 			=> $theme_panel_id,
-		));			
+		));
 		// 9.Client
 	    $client_section_id = 'wpg_client_stc';
-		
+
 	    $wp_customize->add_section( $client_section_id, array(
 			'priority'   		=> '6',
 			'capability' 		=> 'edit_theme_options',
 			'theme_supports'	=> '',
 			'title'      		=> __( 'Clients', 'wpg_theme' ),
 		    'panel' 			=> $theme_panel_id,
-		));		
+		));
 
-		
+
 		/* Add setting and control
 		************************************************/
-		
+
 		// 8. Slider (v.Dropdown select)
 			require get_template_directory() . '/inc/customizer/setting_control/slider/inc_setting_slider_dropdown.php';
 			//require get_template_directory() . '/inc/customizer/setting_control/slider/inc_setting_slider.php';
 		// 9.Client
 			require get_template_directory() . '/inc/customizer/setting_control/inc_setting_client.php';
-	}			   
-} 								
-	
+	}
+}
+
 
 add_action( 'customize_register', 'wpg_customizer_general' );
 
-
-
-/* Simple function to delete transient 
- * if custumizer save query in transient.  
- */
-function customizer_delete_transient() {
-     delete_transient( 'name_transient' );
-}
-//add_action('publish_post', 'customizer_delete_transient');
-//add_action( 'transition_post_status', 'customizer_delete_transient', 10, 3 );
-//add_action( 'customize_save_after','customizer_delete_transient');
 ?>
